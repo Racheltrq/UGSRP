@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    {% load static %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+    <title>Home Page</title>
+  </head>
+  <body style="background-color:#e6e6ff;">
+    <div class = "container-fluid">
+      <div class="text-center">
+        <h1 class="font-weight-light" style="color:#6e6d73;">My own music theory cheatsheet :D</h1>
+      </div>
+      <img src="/static/piano.jpg" class="rounded mx-auto d-block" alt="piano on home page" style="width:300px;height:150px;"/>
+    </div>
+    <div class = "myDiv" style = "width:800px">
+      <h3 class="font-weight-light" style="color:#6e6d73; margin-left:40px;">Keys (Currently only Cmaj and Cmin works for demo)</h3>
+    </div>
+
+    <div class = "myDiv" style = "display: inline-block;">
+
+      <ul class="list-group" style = "margin-left: 40px; margin-bottom: 50px; width: 200px;">
+        {% for key in keys %}
+          {% if key.s_f == '' %}
+            <a href="{% url 'key_detail' key.id %}">
+              {% if key.common == True %}
+
+              <li class="list-group-item list-group-item-info">{{key}}</li>
+              {% else %}
+              <li class="list-group-item list-group-item-light">{{key}}</li>
+              {% endif %}
+            </a>
+
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class = "myDiv" style = "display: inline-block">
+      <ul class="list-group" style = "margin-left: 40px; margin-bottom: 50px; width: 200px;">
+        {% for key in keys %}
+          {% if key.s_f == 'sharp' %}
+            <a href="{% url 'key_detail' key.id %}">
+              <li class="list-group-item list-group-item-light">{{key}}</li>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class = "myDiv" style = "display: inline-block">
+      <ul class="list-group" style = "margin-left: 40px; margin-bottom: 50px; width: 200px;">
+        {% for key in keys %}
+          {% if key.s_f == 'flat' %}
+            <a href="{% url 'key_detail' key.id %}">
+              <li class="list-group-item list-group-item-light">{{key}}</li>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+
+  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</html>
