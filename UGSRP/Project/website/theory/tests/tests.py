@@ -1,6 +1,6 @@
 from django.test import TestCase
 import unittest
-from .models import Key
+from ..models import Key
 
 
 class RedirectTestCase(TestCase):
@@ -11,4 +11,4 @@ class RedirectTestCase(TestCase):
         response = self.client.get('/theory/1/common/')
         key = Key.objects.get(id=1)
         print("After:", key.common, key)
-        self.assertEqual(key.common, False)
+        self.assertEqual(key.common, True)
