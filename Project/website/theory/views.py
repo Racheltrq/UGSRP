@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse
 
 
 from .models import Key
@@ -26,33 +27,30 @@ def get_files(key):
         pngFile.append(str(key).replace(" ", "") + "3.png")
     return midiFile, pngFile
 
+
+
 def key_detail(request, id):
-    try:
-        key = Key.objects.get(id = id)
-        midiFile, pngFile = get_files(key)
-    except Key.DoesNotExist:
-        raise Http404('Key not found.')
+    key = get_object_or_404(Key, id=id)
+    midiFile, pngFile = get_files(key)
     return render(request, 'key_detail.html', {
                                                 'key': key,
                                                 'pngFile': pngFile,
                                                 'midiFile': midiFile
                                                 })
 
-
-def common(request, id):
+def toggle_common(request, id, state):
+    print("state:", state)
     key = Key.objects.get(id=id)
     print("In common1", id, key.common)
-    key.common = True
-    key.save()
-    print("In common2", id, key.common)
-    midiFile, pngFile = get_files(key)
-    return redirect('/theory/' + str(id))
+    if state == "1":
+        print("instate1")
+        key.common = True
+        key.save()
+    else:
+        key.common = False
+        key.save()
 
-def notcommon(request, id):
-    key = Key.objects.get(id=id)
-    print("In common1", id, key.common)
-    key.common = False
-    key.save()
+
     print("In common2", id, key.common)
     midiFile, pngFile = get_files(key)
-    return redirect('/theory/' + str(id))
+    return redirect(reverse('key_detail', args=[id]))

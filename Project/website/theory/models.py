@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 class Key(models.Model):
     key_alphabet = [('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D'), ('E', 'E'), ('F', 'F'), ('G', 'G')]
-    name = models.CharField(choices = key_alphabet, max_length = 1, blank = False)
-    type = models.CharField(max_length = 3, blank = False, default = 'maj')
+    name = models.CharField(choices = key_alphabet, max_length = 1)
+    type = models.CharField(max_length = 3, default = 'maj')
     sharp_flat = [('sharp', '#'), ('flat', 'b')]
     s_f = models.CharField(choices = sharp_flat, default = '', max_length = 5)
     component_pitches = models.CharField(max_length = 30, default = '')

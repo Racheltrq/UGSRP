@@ -73,8 +73,8 @@
 
     </div>
     <div class = "myDivR" style = "height:30px;display:inline-block;width:150px;float:left">
-      <a href="{% url 'common' key.id %}">Common key</a>
-      <a href="{% url 'notcommon' key.id %}">Not common key</a>
+      <a href="{% url 'toggle_common' key.id 1 %}">Common key</a>
+      <a href="{% url 'toggle_common' key.id 0 %}">Not common key</a>
     </div>
 
 
