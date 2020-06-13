@@ -30,9 +30,9 @@
 
         {% if key.type == 'maj' %}
           <div class = "myDiv">
-          <img src="{% static 'scalePng/'|add:pngFile %}" alt="{{key}} scale"/>
+          <img src="{% static 'scalePng/'|add:file.0 %}" alt="{{key}} scale"/>
 
-          <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:midiFile %}');">Play scale</a>
+          <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:file.1 %}');">Play scale</a>
 
           </div>
           <div class = "myDiv">
@@ -40,28 +40,21 @@
           </div>
         {% else %}
 
-          <div class = "myDiv">
-            <img src="{% static 'scalePng/'|add:pngFile.0 %}" alt="{{key}} scale"/>
-            <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:midiFile.0 %}');">Play scale</a>
-          </div>
-          <div class = "myDiv">
-            <p class="font-weight-light" style="color:#6e6d73; margin-left:40px;">Component Pitches: {{key.component_pitches}}</p>
-          </div>
-          <div class = "myDiv">
-            <img src="{% static 'scalePng/'|add:pngFile.1 %}" alt="{{key}} scale"/>
-            <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:midiFile.1 %}');">Play scale</a>
-          </div>
-          <div class = "myDiv">
-            <p class="font-weight-light" style="color:#6e6d73; margin-left:40px;">Component Pitches: {{key.component_pitches1}}</p>
-          </div>
+          {% for i in file %}
+            <div class = "myDiv">
 
-          <div class = "myDiv">
-            <img src="{% static 'scalePng/'|add:pngFile.2 %}" alt="{{key}} scale"/>
-            <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:midiFile.2 %}');">Play scale</a>
-          </div>
-          <div class = "myDiv">
-            <p class="font-weight-light" style="color:#6e6d73; margin-left:40px;">Component Pitches: {{key.component_pitches2}}</p>
-          </div>
+              <img src="{% static 'scalePng/'|add:i.1 %}" alt="{{key}} scale"/>
+              <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:i.0 %}');">Play scale</a>
+
+            </div>
+            <div class = "myDiv">
+              <p class="font-weight-light" style="color:#6e6d73; margin-left:40px;">Component Pitches: {{key.component_pitches}}</p>
+
+            </div>
+
+          {% endfor %}
+
+
 
 
         {% endif %}
