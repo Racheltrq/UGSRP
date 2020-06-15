@@ -4,11 +4,12 @@ python:
   - 3.7
 
 install:
-  - pip install -r /Project/website/requirements.txt
+  - cd Project/website
+  - pip install -r requirements.txt
 
 before_script:
-  - python /Project/website/manage.py migrate
-  - python /Project/website/manage.py collectstatic --noinput
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
 
 script:
   - black --check .
