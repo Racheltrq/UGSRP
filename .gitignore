@@ -4,3 +4,5 @@ Project/website/htmlcov
 Project/website/db.sqlite3
 Project/website/theory/__pycache__
 Project/website/venv
+!**/__pycache__/
+!**/migrations/
