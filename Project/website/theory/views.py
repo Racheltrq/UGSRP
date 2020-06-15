@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 
@@ -24,13 +22,16 @@ def get_files(key):
     else:
         files = []
         files.append(
-            [str(key).replace(" ", "") + "1.midi", str(key).replace(" ", "") + "1.png"]
+            [str(key).replace(" ", "") + "1.midi",
+             str(key).replace(" ", "") + "1.png"]
         )
         files.append(
-            [str(key).replace(" ", "") + "2.midi", str(key).replace(" ", "") + "2.png"]
+            [str(key).replace(" ", "") + "2.midi",
+             str(key).replace(" ", "") + "2.png"]
         )
         files.append(
-            [str(key).replace(" ", "") + "3.midi", str(key).replace(" ", "") + "3.png"]
+            [str(key).replace(" ", "") + "3.midi",
+             str(key).replace(" ", "") + "3.png"]
         )
     return files
 
