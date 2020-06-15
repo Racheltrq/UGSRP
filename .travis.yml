@@ -12,8 +12,11 @@ before_script:
   #- python manage.py collectstatic --noinput
 
 script:
-  #- black --check .
-  #- flake8 .
+  - black --check website
+  - black --check theory
+  - flake8 website
+  - flake8 theory
+
   - coverage run --source=website,theory manage.py test
 
 after_script:
