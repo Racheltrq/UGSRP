@@ -30,9 +30,9 @@
 
         {% if key.type == 'maj' %}
           <div class = "myDiv">
-          <img src="{% static 'scalePng/'|add:file.0 %}" alt="{{key}} scale"/>
+          <img src="{% static 'scalePng/'|add:file.1 %}" alt="{{key}} scale"/>
 
-          <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:file.1 %}');">Play scale</a>
+          <a type="button" class="btn btn-light" href="#" onClick="MIDIjs.play('{% static 'scaleMidi/'|add:file.0 %}');">Play scale</a>
 
           </div>
           <div class = "myDiv">
