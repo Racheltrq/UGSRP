@@ -7,16 +7,37 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Key',
+            name="Key",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(choices=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D'), ('E', 'E'), ('F', 'F'), ('G', 'G')], max_length=1)),
-                ('major', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        choices=[
+                            ("A", "A"),
+                            ("B", "B"),
+                            ("C", "C"),
+                            ("D", "D"),
+                            ("E", "E"),
+                            ("F", "F"),
+                            ("G", "G"),
+                        ],
+                        max_length=1,
+                    ),
+                ),
+                ("major", models.BooleanField(default=True)),
             ],
         ),
     ]

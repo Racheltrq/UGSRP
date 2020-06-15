@@ -6,18 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('theory', '0003_key_s_f'),
+        ("theory", "0003_key_s_f"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='key',
-            name='component_pitches',
-            field=models.CharField(default='', max_length=30),
+            model_name="key",
+            name="component_pitches",
+            field=models.CharField(default="", max_length=30),
         ),
         migrations.AlterField(
-            model_name='key',
-            name='s_f',
-            field=models.CharField(choices=[('sharp', '♯'), ('flat', 'b')], default='', max_length=5),
+            model_name="key",
+            name="s_f",
+            field=models.CharField(
+                choices=[("sharp", "♯"), ("flat", "b")], default="", max_length=5
+            ),
         ),
     ]

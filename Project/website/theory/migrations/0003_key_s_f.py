@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('theory', '0002_auto_20200603_0237'),
+        ("theory", "0002_auto_20200603_0237"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='key',
-            name='s_f',
-            field=models.CharField(choices=[('sharp', '♯'), ('flat', 'b')], default=' ', max_length=5),
+            model_name="key",
+            name="s_f",
+            field=models.CharField(
+                choices=[("sharp", "♯"), ("flat", "b")], default=" ", max_length=5
+            ),
         ),
     ]

@@ -6,13 +6,11 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('theory', '0005_auto_20200604_1831'),
+        ("theory", "0005_auto_20200604_1831"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='key',
-            name='common',
-            field=models.BooleanField(default=False),
+            model_name="key", name="common", field=models.BooleanField(default=False),
         ),
     ]
