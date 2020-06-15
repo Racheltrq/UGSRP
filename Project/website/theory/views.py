@@ -22,16 +22,13 @@ def get_files(key):
     else:
         files = []
         files.append(
-            [str(key).replace(" ", "") + "1.midi",
-             str(key).replace(" ", "") + "1.png"]
+            [str(key).replace(" ", "") + "1.midi", str(key).replace(" ", "") + "1.png"]
         )
         files.append(
-            [str(key).replace(" ", "") + "2.midi",
-             str(key).replace(" ", "") + "2.png"]
+            [str(key).replace(" ", "") + "2.midi", str(key).replace(" ", "") + "2.png"]
         )
         files.append(
-            [str(key).replace(" ", "") + "3.midi",
-             str(key).replace(" ", "") + "3.png"]
+            [str(key).replace(" ", "") + "3.midi", str(key).replace(" ", "") + "3.png"]
         )
     return files
 

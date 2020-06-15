@@ -14,8 +14,7 @@ class Migration(migrations.Migration):
             model_name="key",
             name="s_f",
             field=models.CharField(
-                choices=[("sharp", "♯"), ("flat", "b")],
-                default=" ", max_length=5
+                choices=[("sharp", "♯"), ("flat", "b")], default=" ", max_length=5
             ),
         ),
     ]
