@@ -1,0 +1,5 @@
+Project/website/.coverage
+Project/website/htmlcov
+**/.DS_Store
+Project/website/db.sqlite3
+Project/website/theory/__pycache__
