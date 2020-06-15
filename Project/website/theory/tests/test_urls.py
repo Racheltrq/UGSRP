@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from theory.views import home, key_detail, common, notcommon
+from theory.views import home, key_detail, toggle_common
 
 
 class TestUrls(TestCase):
@@ -13,9 +13,5 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, key_detail)
 
     def test_url_common_resolved(self):
-        url = reverse("common", args=[2])
-        self.assertEquals(resolve(url).func, common)
-
-    def test_url_uncommon_resolved(self):
-        url = reverse("notcommon", args=[2])
-        self.assertEquals(resolve(url).func, notcommon)
+        url = reverse("toggle_common", args=[2, 1])
+        self.assertEquals(resolve(url).func, toggle_common)
