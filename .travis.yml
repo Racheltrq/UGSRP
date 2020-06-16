@@ -1,0 +1,23 @@
+language: python
+
+python:
+  - 3.7
+
+install:
+  - cd Project/website
+  - pip install -r requirements.txt
+
+before_script:
+  - python manage.py migrate
+  - python manage.py collectstatic --noinput
+
+script:
+  - black --check website
+  - black --check theory
+  - flake8 website
+  - flake8 theory
+
+  - coverage run --source=website,theory manage.py test
+
+after_script:
+  - coveralls
